@@ -2,9 +2,15 @@
 
 本仓库包含三类内容，授权各不相同。
 
+## 0. 生成方式
+
+本仓库的**译文、文档与本项目自有的工具脚本均由 [DeepSeek](https://www.deepseek.com/)（AI）生成**，
+经自动化校验工具链检查后发布，**未经过人工逐条审阅**。
+仅对其 README 中标注的那一个游戏版本做过实测，其他版本未测试。
+
 ## 1. 译文（`ZH-CN/Strings.xml`、`docs/GLOSSARY.md`）
 
-本项目原创的简体中文译文，采用
+本项目的简体中文译文，采用
 **Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)** 授权。
 
 你可以自由地共享与改编，条件是：

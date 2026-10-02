@@ -5,6 +5,16 @@ Steam 版《Juno: New Origins》的非官方简体中文语言包。
 游戏 1.4 起支持 `Languages/` 语言包机制，且**刻意不内置任何语言**，把本地化交给社区。
 本仓库提供完整简中译文、配套字体与一套可复现的校验工具链。
 
+> ## ⚠️ 生成方式与测试范围（请先读这一条）
+>
+> - 本仓库的**译文、文档与工具脚本均由 [DeepSeek](https://www.deepseek.com/)（AI）生成**，
+>   经仓库内自动化工具链（占位符 / 富文本标签 / id 集合 / 换行形态 / 前后空白 / UI 宽度
+>   校验，加 XML 回环验证与字体 cmap 覆盖检查）通过后发布。**译文没有经过人工逐条审阅。**
+> - **仅在下面「适配版本」标注的那一个游戏版本上做过实测**（装机、进游戏确认菜单显示中文）；
+>   **其他任何版本都没有测试过。** 结构上语言包只覆盖它认识的 `id`，遇到不认识的
+>   `id` 会回退显示英文，不会报错也不会崩溃——但这是机制层面的推断，并非实测结论。
+> - 术语裁决与已知问题见下文各节，以及 [`docs/GLOSSARY.md`](docs/GLOSSARY.md)。
+
 ## 适配版本
 
 | 项 | 值 |
@@ -263,7 +273,7 @@ id 集合一致、空译文、**换行形态守恒**、**前后空白守恒**、
 
 ## 授权
 
-- **本语言包的译文**：由本项目翻译，按 [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) 发布
+- **本语言包的译文**：由 **DeepSeek（AI）** 生成，按 [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) 发布
 - **字体** `SansSC-Regular.otf`：Noto Sans SC，SIL Open Font License 1.1，
   完整授权见 [`ZH-CN/OFL.txt`](ZH-CN/OFL.txt)
 
