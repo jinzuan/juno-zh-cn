@@ -112,6 +112,34 @@ Strut / Fin / Hinge Rotator / Cargo Bay     支柱 / 尾翼 / 铰链旋转器 / 
 | cargo bay | 货舱 | gimbal range | 矢量范围 |
 | hinge rotator | 铰链旋转器 | center of mass | 质心 |
 
+## 地形生成子系统术语（Modifier + PlanetStudio 统一）
+
+这两个模块属于**同一地形生成子系统**，术语必须跨模块一致。实测踩过一次冲突：
+PlanetStudio 初稿把 `pass` 译「通道」、`lacunarity` 译「隙度」，
+而 Modifier 早已确立「阶段」「空隙度」——不统一就会在同包内出现一个英文词两种译法。
+**已按 Modifier 为准全量回改。**
+
+| 英文 | 中文 | 英文 | 中文 |
+|---|---|---|---|
+| pass | 阶段 | octaves | 倍频层数 |
+| common pass | 通用阶段 | lacunarity | 空隙度 |
+| biome specific pass | 特定生物群系阶段 | gain | 增益 |
+| data slot | 数据槽 | crater | 陨石坑 |
+| modifier | 修改器 | terraces | 阶地 |
+| biome | 生物群系 | splatmap | 泼溅图 |
+| sub-biome | 子生物群系 | tiling | 平铺 |
+| cubemap | 立方体贴图 | specular | 高光 |
+| gradient | 渐变 | emissiveness | 自发光度 |
+| detail texture | 细节贴图 | metallicness | 金属度 |
+| normal map | 法线贴图 | smoothness | 光滑度 |
+| domain warping | 域扭曲 | terrain quality mode | 地形画质模式 |
+| gas giant | 气态巨行星 | subdivision | 细分层级 |
+
+**保留原文**：`Perlin` / `FBM` / `GDC Swiss` / `ISRU` / `Alpha` / `RTG` / `HUD` / `RCS` / `Δv` / `TWR`
+
+**建筑名**：hangar=机库 · runway=跑道 · launch pad=发射台 · outpost=前哨站 ·
+taxiway=滑行道 · flame trench=导流槽 · VAB=飞行器装配大楼 · land pad=着陆台 · crane=起重机
+
 ## 设置与图形术语（Settings 批次确立）
 
 | 英文 | 中文 | 英文 | 中文 |
