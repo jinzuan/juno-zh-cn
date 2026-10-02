@@ -5,6 +5,36 @@ Steam 版《Juno: New Origins》的非官方简体中文语言包。
 游戏 1.4 起支持 `Languages/` 语言包机制，且**刻意不内置任何语言**，把本地化交给社区。
 本仓库提供完整简中译文、配套字体与一套可复现的校验工具链。
 
+## 适配版本
+
+| 项 | 值 |
+|---|---|
+| **游戏版本** | **1.4.105.0c** |
+| **Steam 分支** | `public`（正式版，非 beta / 非 open-beta） |
+| Steam buildid | 24658847 |
+| 字符串总数 | 9,271 条 |
+| 验证日期 | 2026-10-02 |
+
+### 游戏更新后怎么办
+
+语言包**只覆盖它认识的那些 `id`**；游戏若新增字符串，新 `id` 不在本包里，
+界面会**回退显示英文**——**不会报错、不会崩**，只是那几条还是英文。
+
+想核实是否有新增字符串，跑一次抽取并比对条数：
+
+```powershell
+# 从当前游戏的 EN-US/Strings.xml 重新抽取
+powershell -NoProfile -ExecutionPolicy Bypass -File src\extract-strings.ps1
+
+# 看条数是否仍是 9,271
+(Get-Content src\strings.json -Raw -Encoding UTF8 | ConvertFrom-Json).Count
+```
+
+**条数变多 = 游戏加了新字符串**，多出来的 `id` 就是待补翻的部分。
+
+另外，游戏有时会**重写自己的 `EN-US/Strings.xml`**（实测看到过它规范化空白，
+如把 `"thrust. \n"` 改成 `"thrust.\n"`）。这属正常行为，不影响本包。
+
 ## 语言包覆盖不到的部分（有意保留）
 
 装上本包后，下面这些**仍然是英文**。这不是漏翻，而是它们不走 `Languages/` 机制：
