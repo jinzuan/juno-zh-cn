@@ -1,0 +1,15 @@
+<Fonts>
+   <!-- Sans-SC 是官方在 resources.assets 里预置并期望的字体标识：
+        样式系统用 font="{Ui.PrimaryFontPath}" 引用，官方示例把该值设为 Sans-SC。
+        官方注释还写着 "Replace with a full-coverage Chinese font (e.g. Noto Sans SC)
+        before shipping" —— 本包用的正是完整版 Noto Sans SC（30,892 码位）。
+
+        关于 atlasResolution（1080p 动态图集）：
+          官方示例用 1024,1024，但那是**为 14 个字形的子集字体**设的。
+          实测装机后，菜单顶栏/底栏有少量汉字显示为方框（如「质量」），
+          而同一界面里绝大多数汉字正常 —— 指向**图集容量不足**，不是字体缺字形
+          （已用 cmap 解析验证：这些字的码位都在字体里；文件 SHA256 也与系统源一致）。
+          本包用完整字体、已渲染 1,167 个汉字，1024² 很可能装不下，
+          故提到 2048,2048 试验。若无效可回退成官方值 —— 改动只有这一处。 -->
+   <Font id="Sans-SC" file="SansSC-Regular.otf" atlasPopulationMode="Dynamic" atlasResolution="2048,2048" samplingPointSize="60" padding="6" />
+</Fonts>

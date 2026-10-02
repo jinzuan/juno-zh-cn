@@ -1,0 +1,21 @@
+# 这些文件是测试夹具，用于证明校验器有效（含故意埋入的缺陷）。
+# 体积较大（每个约 1.2 MB）且可随时由 extract-strings.ps1 重新生成，
+# 所以不入库。要跑反向测试的话，先在本地生成 strings.json 再重建夹具。
+tests/fixture-*.json
+
+# 抽取产物：由 extract-strings.ps1 从本机游戏生成，路径随机器而异
+src/strings.json
+src/strings.tsv
+src/diag.ps1
+
+# 报告与中间产物
+reports/
+batches/
+tmp/
+
+# 编辑器 / 系统
+.vscode/
+.idea/
+Thumbs.db
+desktop.ini
+*.swp
