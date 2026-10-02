@@ -5,6 +5,65 @@ Steam 版《Juno: New Origins》的非官方简体中文语言包。
 游戏 1.4 起支持 `Languages/` 语言包机制，且**刻意不内置任何语言**，把本地化交给社区。
 本仓库提供完整简中译文、配套字体与一套可复现的校验工具链。
 
+## 语言包覆盖不到的部分（有意保留）
+
+装上本包后，下面这些**仍然是英文**。这不是漏翻，而是它们不走 `Languages/` 机制：
+
+### 1. 预设飞行器名
+
+```
+UserData/CraftDesigns/SimpleATV.xml  SimpleBeast.xml  SimpleBot.xml ...
+```
+
+名称取自**文件名或文件内的标识字段**，属于游戏数据不是界面文案。
+实测游戏目录里搜不到集中存放处（`resources.assets` 中 `CraftDesigns/` 为空引用）。
+
+**为什么不去改**：那要动 40+ 个设计文件，且属游戏数据而非语言包——
+上传/分享飞行器时名字会跟着变，也会和别人的设计混淆。
+本包的名分是"一个文件夹即插即用"，改数据文件就破坏了这个边界。
+
+### 2. 「更新内容」（What's New）
+
+游戏在运行**联网获取**这段文本，本地没有任何 changelog 文件。
+语言包里只有它的标题和失败提示：
+
+```
+MenuUi.WhatsNew.Title  = 更新内容      ← 已汉化
+Menu.WhatsNew.ErrorOne = 无法获取"新内容"文本…请稍后重试。  ← 已汉化
+```
+
+**正文结构上无法汉化**，除非改游戏代码。
+
+### 3. 天体名（Droo / Luna / Brigo … 共 22 个）
+
+这些**在语言包里、技术上可改**：
+
+```
+Planets.Droo.Name   EN='Droo'   ZH='Droo'    ← 保留原文
+Planets.Luna.Name   EN='Luna'   ZH='Luna'
+```
+
+**为什么保留原文**：
+
+- 天体名同时存在于 `GameData/CelestialDatabase/` 的 XML 里（`name="Boreas"`），
+  以及飞行器设计文件中**按名字引用行星**。只改显示名会造成游戏内两套叫法。
+- 合同描述大量内联引用天体名（`@Planet`、`@Moon` 变量替换），
+  译名会散落在正文里，且与飞行器/存档里的引用不一致。
+- 中文航天社区惯用原文名（KSP 的 Kerbin/Mun 也都保留原文）。
+
+### 4. 天体 XML 内的修改器名
+
+`GameData/CelestialDatabase/**/*.xml` 里有 `name="Simple biomes"`、
+`name="Get constant"` 这类属性。**技术上可改，但不建议**：
+那不属于 `Languages/` 机制，**游戏更新会覆盖**，且会让本包从
+"不修改游戏本体任何文件"变成"要改游戏数据"。
+
+### 5. 按键名与单位符号
+
+按键名（`Left Shift`、`Caps Lock`…）、单位符号（`m/s`、`km`、`TP`…）、
+数学函数名（`sin`、`atan`…）、型号名（`FXAA`、`RTG`、`RCS`…）
+**一律保留原文**——译成中文反而对不上键盘和缩写的实际含义。
+
 ## 安装
 
 1. 打开语言目录（Windows）：
